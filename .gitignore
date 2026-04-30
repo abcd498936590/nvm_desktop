@@ -1,0 +1,85 @@
+# ----------------------------------------------------------------------------
+# Flutter 核心文件
+# ----------------------------------------------------------------------------
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
+# ----------------------------------------------------------------------------
+# Android 相关
+# ----------------------------------------------------------------------------
+android/**/local.properties
+android/gen/
+android/generated/
+android/app/src/main/res/raw/
+android/.gradle/
+android/captures/
+android/*.iml
+android/app/*.iml
+
+# 排除签名文件（非常重要，不要把私钥上传）
+*.keystore
+*.jks
+
+# ----------------------------------------------------------------------------
+# iOS 相关
+# ----------------------------------------------------------------------------
+ios/Runner/GeneratedPluginRegistrant.h
+ios/Runner/GeneratedPluginRegistrant.m
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Pods/
+ios/.symlinks/
+ios/Config/Generated.xcconfig
+
+# 排除 CocoaPods 锁文件（可选，通常团队开发建议保留 Podfile.lock）
+# ios/Podfile.lock
+
+# ----------------------------------------------------------------------------
+# Windows / macOS / Linux 相关
+# ----------------------------------------------------------------------------
+windows/flutter/ephemeral/
+macos/Flutter/ephemeral/
+linux/flutter/ephemeral/
+
+# ----------------------------------------------------------------------------
+# Web 相关
+# ----------------------------------------------------------------------------
+.last_build_id
+node_modules/
+
+# ----------------------------------------------------------------------------
+# IDE 及系统临时文件
+# ----------------------------------------------------------------------------
+# Visual Studio Code
+.vscode/
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# macOS 系统文件
+.DS_Store
+
+# 日志及测试覆盖率
+*.log
+doc/api/
+coverage/
+macos/Flutter/Flutter-Debug.xcconfig
+macos/Flutter/Flutter-Release.xcconfig
+pubspec.lock
+.metadata
+
+# exe打包后文件夹
+Output/
