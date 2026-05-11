@@ -10,9 +10,9 @@ A professional, cross-platform Node.js version manager built with Flutter. Desig
 
 ## **Key Features**
 
-- **Cross-Platform Support:** Full compatibility with Windows (x64) and macOS (ARM64/x64).
+- **Cross-Platform Support:** Full compatibility with Windows (x64) and macOS (ARM64、X86).
 - **Architecture Aware:**
-  - **macOS:** Native support for both Apple Silicon (ARM64) and Intel (x64) chips.
+  - **macOS:** Native support for both Apple Silicon (ARM64) and Intel X86.
   - **Windows:** Robust support for x64 Node.js distributions.
 - **Flutter Powered:** Built using the latest Flutter stable channel for a smooth, high-performance user interface.
 - **System Integration:** Effortless management of environment variables and symbolic links without manual configuration.
@@ -23,7 +23,7 @@ A professional, cross-platform Node.js version manager built with Flutter. Desig
 | :--------------------- | :------------------------------- |
 | Framework              | Flutter (Channel stable, 3.41.9) |
 | Supported Systems      | Windows 10+, macOS 11+           |
-| Architecture (macOS)   | ARM64, x64                       |
+| Architecture (macOS)   | ARM64、X86                       |
 | Architecture (Windows) | x64                              |
 
 ## **Build Instructions**
@@ -37,7 +37,8 @@ A professional, cross-platform Node.js version manager built with Flutter. Desig
 ### **macOS Packaging**
 
 `# 1. Build release`  
-`flutter build macos --release`
+`flutter build macos --release --dart-define=FLUTTER_XCODE_ARCHS=x86_64`  
+`flutter build macos --release --dart-define=FLUTTER_XCODE_ARCHS=arm64`
 
 `# 2. Strip extended attributes`  
 `xattr -cr build/macos/Build/Products/Release/nvm_desktop.app`
@@ -46,7 +47,8 @@ A professional, cross-platform Node.js version manager built with Flutter. Desig
 `chmod -R +x build/macos/Build/Products/Release/nvm_desktop.app`
 
 `# 4. Generate DMG`  
-`./build_dmg.sh`
+`./build_dmg.sh arm64`  
+`./build_dmg.sh x64`
 
 ### **Windows Packaging**
 

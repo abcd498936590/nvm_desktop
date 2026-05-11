@@ -8,9 +8,9 @@
 
 ## **核心特性**
 
-- **跨平台支持：** 完美适配 Windows (x64) 与 macOS (ARM64/x64)。
+- **跨平台支持：** 完美适配 Windows (x64) 与 macOS (ARM64、X86)。
 - **架构感知：**
-  - **macOS：** 原生支持 Apple Silicon (ARM64) 以及 Intel (x64) 芯片。
+  - **macOS：** 原生支持 Apple Silicon (ARM64) 和 Intel X86。
   - **Windows：** 提供对 x64 架构 Node.js 发行版的稳定支持。
 - **高性能 UI：** 采用最新的 Flutter 稳定版开发，确保极致的响应速度与丝滑的交互体验。
 - **深度集成：** 自动处理环境变量注入与符号链接（Symbolic Links）管理，简化配置流程。
@@ -21,7 +21,7 @@
 | :--------------- | :------------------------------- |
 | 开发框架         | Flutter (Channel stable, 3.41.9) |
 | 支持系统         | Windows 10+, macOS 11+           |
-| macOS 架构支持   | ARM64, x64                       |
+| macOS 架构支持   | ARM64 、X86                      |
 | Windows 架构支持 | x64                              |
 
 ## **构建指南**
@@ -35,7 +35,8 @@
 ### **macOS 编译与打包**
 
 `# 1. 编译 Release 版本`  
-`flutter build macos --release`
+`flutter build macos --release --dart-define=FLUTTER_XCODE_ARCHS=x86_64`  
+`flutter build macos --release --dart-define=FLUTTER_XCODE_ARCHS=arm64`
 
 `# 2. 清除扩展属性`  
 `xattr -cr build/macos/Build/Products/Release/nvm_desktop.app`
@@ -44,7 +45,8 @@
 `chmod -R +x build/macos/Build/Products/Release/nvm_desktop.app`
 
 `# 4. 执行脚本生成 DMG`  
-`./build_dmg.sh`
+`./build_dmg.sh arm64`  
+`./build_dmg.sh x64`
 
 ### **Windows 编译与打包**
 
