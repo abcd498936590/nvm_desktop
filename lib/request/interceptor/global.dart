@@ -1,0 +1,11 @@
+import 'dart:io';
+import 'package:dio/dio.dart';
+
+class AppInterceptor extends Interceptor {
+  @override
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    options.headers[HttpHeaders.userAgentHeader] =
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1';
+    return handler.next(options);
+  }
+}
